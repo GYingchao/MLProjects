@@ -1,0 +1,18 @@
+# Created by Octave 3.6.4, Sat Oct 12 20:44:16 2013 China Standard Time <unknown@csz900>
+# name: fea
+# type: matrix
+# rows: 11
+# columns: 3
+ 1 2 7
+ 1 6 9
+ 1 8 4
+ 5 7 4
+ 8 3 9
+ 4 6 7
+ 4 2 9
+ 4 8 6
+ 5 7 2
+ 3 5 9
+ 4 6 7
+
+
