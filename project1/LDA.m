@@ -14,38 +14,46 @@
 % ## along with Octave; see the file COPYING.  If not, see
 % ## <http://www.gnu.org/licenses/>.
 
-% ## PCA : reduce the dimensionality of data to k
+% ## LDA : reduce the dimensionality of data to k
 
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
-function [ ret ] = PCA (dataFile, k)
+function [ ret ] = LDA (dataFile, k)
 	% Load the data source
 	load(dataFile);
 	% d stands for # of dimensions and n stands for # of samples in the data source matrix(n by d)
-	clear gnd;
 	[n d] = size(fea);
+	% K stands for # of Label classes
+	K = max(gnd)+1;
 	% Check the validation of input k
-	if k >= (d-1) 
+	if k > (K-1) 
 		disp('Nothing to do with dimensionality reduction..');
 		exit(-1);
     end
 	
-	% Turn the sample datas to column vectors
 	fea = fea';
-	% Here comes the SVD
-	% First we compute the mean of raw data defined as mu
-	mu = mean(fea, 2);
-	% Then we compute the covariate matrix defined as sigma
-	temp = bsxfun(@minus, fea, mu);
- 	sigma = temp*temp'/n;
-	clear temp;
-	% Find the k-largest eigenvectors of sigma to construct the projection matrix
- 	[V, D] = eigs(sigma, k);
-	% Do the projection
-	ret = (V'*fea)';	% Do the transport just to match the input data format
+	S_w = zeros(d, d);
+	S_b = zeros(d, d);
+	m_i = zeros(d, 1);
+	m = mean(fea, 2);
+	for i=0:(K-1)
+		% Construct the within-class scatter matrix
+		sub_index = find(gnd == i);
+		sub_matrix = fea(:, sub_index);
+		m_i = mean(sub_matrix, 2);
+		temp = bsxfun(@minus, sub_matrix, m_i);
+		S_w = S_w + temp*temp';
+		
+		% Construct the Between-class scatter matrix
+		S_b = S_b + length(sub_index)*(m_i-m)*(m_i-m)';
+	end
+	
+	% First we dont consider the condition that S_w is singular
+	[V, D] = eigs(pinv(S_w)*S_b, k);
+	ret = (V'*fea)';
 	
 	% Save the result
-	fileName = sprintf('%s%d', 'PCA_',k);
-	save("-binary", fileName, "ret");
+	fileName = sprintf('%s%d', 'LDA_',k);
+	save("-binary", fileName, "ret");	
 endfunction

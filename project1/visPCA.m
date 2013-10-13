@@ -19,6 +19,39 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
-function [ ret ] = visPCA ()
+% % This script is not a function, just a code snippet for testing PCA result
 
-endfunction
+% Get the original data
+load('Test1');
+clear gnd;
+idx = randperm(4000);
+fea = fea(idx(1:100),:);
+
+% Get the data after performing PCA
+load('PCA_25');
+
+faceW = 28;
+faceH = 28;
+numPerLine = 20;
+ShowLine = 4;
+
+faceW1 = 5;
+faceH1 = 5;
+
+Y = zeros(faceH*ShowLine,faceW*numPerLine);
+Y1 = zeros(faceH*ShowLine,faceW*numPerLine);
+for i=0:ShowLine-1
+   for j=0:numPerLine-1
+     Y(i*faceH+1:(i+1)*faceH,j*faceW+1:(j+1)*faceW) = reshape(fea(i*numPerLine+j+1,:),[faceH,faceW])';
+	 Y1(i*faceH1+1:(i+1)*faceH1,j*faceW1+1:(j+1)*faceW1) = reshape(ret(i*numPerLine+j+1,:),[faceH1,faceW1])';
+   end
+end
+%imagesc(Y);colormap(gray);
+subplot(2, 1, 1);
+imshow(Y);
+subplot(2, 1, 2);
+imshow(Y1);
+
+
+
+
