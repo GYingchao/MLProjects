@@ -56,9 +56,14 @@ function [ ret ] = classifier (trainFile, testFile)
 		temp = bsxfun(@minus, sub_matrix, mu_i);
 		sigma_i = temp*temp'/train_d;
 		
+		% For acceleration
+		detsigma_i = det(sigma_i);
+		invsigma_i = pinv(sigma_i);
+		clear sigma_i;
+		
 		for l=1:test_n
 			temp = test_fea(:, l) - mu_i;
-			G_x(i+1, l) = -0.5*test_d*log(2*pi) - 0.5*log(det(sigma_i)) - 0.5*temp'*pinv(sigma_i)*temp + log(p_ci);
+			G_x(i+1, l) = -0.5*test_d*log(2*pi) - 0.5*log(detsigma_i) - 0.5*temp'*invsigma_i*temp + log(p_ci);
 		end
 	end
 	ret = G_x;
