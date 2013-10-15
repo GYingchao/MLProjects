@@ -31,27 +31,20 @@ function [ ret ] = PCALDA (dataFile, k1, k2)
 		exit(-1);
     end
 	
-	% Turn the sample datas to column vectors
-	fea = fea';
 	% Here comes the SVD
-	% First we compute the mean of raw data defined as mu
-	mu = mean(fea, 2);
-	% Then we compute the covariate matrix defined as sigma
-	temp = bsxfun(@minus, fea, mu);
- 	sigma = temp*temp'/n;
-	clear temp;
+ 	sigma = cov(fea, 1);
+
 	% Find the k1-largest eigenvectors of sigma to construct the projection matrix
  	[V, D] = eigs(sigma, k1);
-	fea = V'*fea;
+	fea = fea*V;
 	
 	%% Clear all the internal variables
-	clear mu;
 	clear sigma;
 	clear V;
 	clear D;
 	
 	% Code of LDA
-	[d n] = size(fea);
+	% Now the data matrix becomes n by k1
 	% K stands for # of Label classes
 	K = max(gnd)+1;
 	% Check the validation of input k
@@ -59,9 +52,10 @@ function [ ret ] = PCALDA (dataFile, k1, k2)
 		disp('Nothing to do with dimensionality reduction..');
 		exit(-1);
     end
-	S_w = zeros(d, d);
-	S_b = zeros(d, d);
-	m_i = zeros(d, 1);
+	S_w = zeros(k1, k1);
+	S_b = zeros(k1, k1);
+	m_i = zeros(k1, 1);
+	fea = fea';
 	m = mean(fea, 2);
 	for i=0:(K-1)
 		% Construct the within-class scatter matrix
