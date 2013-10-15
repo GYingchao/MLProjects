@@ -67,7 +67,7 @@ function [ ret ] = classifier (trainFile, testFile)
 		end
 	end
 	[prob result] = max(G_x);
-	ret = result';
+	ret = (result-1)';
 	
 	% Save the result
 	save("-binary", "classified_result", "ret");	
