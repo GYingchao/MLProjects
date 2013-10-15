@@ -79,7 +79,9 @@ function [ ret ] = PCALDA (dataFile, k1, k2)
 	ret = (V'*fea)';
 	
 	% Save the result
+	fea = ret;
+	
 	fileName = sprintf('%s%d_%d', 'PCALDA_',k1, k2);
-	save("-binary", fileName, "ret");	
+	save("-binary", fileName, "fea", "gnd");	
 
 endfunction

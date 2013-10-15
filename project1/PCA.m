@@ -23,7 +23,6 @@ function [ ret ] = PCA (dataFile, k)
 	% Load the data source
 	load(dataFile);
 	% d stands for # of dimensions and n stands for # of samples in the data source matrix(n by d)
-	clear gnd;
 	[n d] = size(fea);
 	% Check the validation of input k
 	if k >= (d-1) 
@@ -46,6 +45,7 @@ function [ ret ] = PCA (dataFile, k)
 	ret = (V'*fea)';	% Do the transport just to match the input data format
 	
 	% Save the result
+	fea = ret;
 	fileName = sprintf('%s%d', 'PCA_',k);
-	save("-binary", fileName, "ret");
+	save("-binary", fileName, "fea", "gnd");
 endfunction

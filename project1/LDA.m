@@ -54,6 +54,7 @@ function [ ret ] = LDA (dataFile, k)
 	ret = (V'*fea)';
 	
 	% Save the result
+	fea = ret;
 	fileName = sprintf('%s%d', 'LDA_',k);
-	save("-binary", fileName, "ret");	
+	save("-binary", fileName, "fea", "gnd");	
 endfunction
