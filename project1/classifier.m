@@ -31,7 +31,6 @@ function [ ret ] = classifier (trainFile, testFile)
 	test_fea = fea';
 	clear fea;
 
-	
 	[train_d train_n] = size(train_fea);
 	train_K = max(train_gnd)+1;
 	[test_d test_n] = size(test_fea);
@@ -53,8 +52,7 @@ function [ ret ] = classifier (trainFile, testFile)
 		mu_i = mean(sub_matrix, 2);
 		
 		% Calculate the class covariance matrix
-		temp = bsxfun(@minus, sub_matrix, mu_i);
-		sigma_i = temp*temp'/train_d;
+		sigma_i = cov(sub_matrix', 1);
 		
 		% For acceleration
 		detsigma_i = det(sigma_i);
