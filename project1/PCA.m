@@ -30,19 +30,12 @@ function [ ret ] = PCA (dataFile, k)
 		exit(-1);
     end
 	
-	% Turn the sample datas to column vectors
-	fea = fea';
 	% Here comes the SVD
-	% First we compute the mean of raw data defined as mu
-	mu = mean(fea, 2);
-	% Then we compute the covariate matrix defined as sigma
-	temp = bsxfun(@minus, fea, mu);
- 	sigma = temp*temp'/n;
-	clear temp;
+	sigma = cov(fea, 1);
 	% Find the k-largest eigenvectors of sigma to construct the projection matrix
  	[V, D] = eigs(sigma, k);
 	% Do the projection
-	ret = (V'*fea)';	% Do the transport just to match the input data format
+	ret = fea*V;	% Do the transport just to match the input data format
 	
 	% Save the result
 	fea = ret;
