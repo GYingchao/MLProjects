@@ -20,7 +20,7 @@
 % ## Created: 2013-10-14
 
 function [ ret ] = classifier (trainFile, testFile)
-	
+	tic;
 	load(trainFile);
 	train_fea = fea';
 	train_gnd = gnd;
@@ -66,6 +66,10 @@ function [ ret ] = classifier (trainFile, testFile)
 			G_x(i+1, l) = -0.5*test_d*log(2*pi) - 0.5*log(detsigma_i) - 0.5*temp'*invsigma_i*temp + log(p_ci);
 		end
 	end
-	ret = G_x;
-
+	[prob result] = max(G_x);
+	ret = result';
+	
+	% Save the result
+	save("-binary", "classified_result", "ret");	
+	toc()
 endfunction
