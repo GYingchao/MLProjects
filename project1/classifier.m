@@ -29,8 +29,10 @@ function [ ret ] = classifier (trainFile, testFile)
 	
 	load(testFile);
 	test_fea = fea';
+	test_gnd = gnd;
 	clear fea;
-
+	clear gnd;
+	
 	[train_d train_n] = size(train_fea);
 	train_K = max(train_gnd)+1;
 	[test_d test_n] = size(test_fea);
@@ -40,7 +42,7 @@ function [ ret ] = classifier (trainFile, testFile)
 		exit(-1);
 	end
 	
-	G_x = zeros(train_K, test_n);
+	G_x = ones(train_K, test_n);
 	
 	for i=0:(train_K-1)
 		% Calculate the prior class probability
@@ -61,11 +63,15 @@ function [ ret ] = classifier (trainFile, testFile)
 		
 		for l=1:test_n
 			temp = test_fea(:, l) - mu_i;
-			G_x(i+1, l) = -0.5*test_d*log(2*pi) - 0.5*log(detsigma_i) - 0.5*temp'*invsigma_i*temp + log(p_ci);
+			G_x(i+1, l) = round(-0.5*test_d*log(2*pi) - 0.5*log(detsigma_i) - 0.5*temp'*invsigma_i*temp + log(p_ci));
+			clear temp;
 		end
 	end
+	G_x
 	[prob result] = max(G_x);
 	ret = (result-1)';
+	accuryRatio = sum(ret == test_gnd)/test_n;
+	disp(accuryRatio);
 	
 	% Save the result
 	save("-binary", "classified_result", "ret");	
