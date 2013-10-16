@@ -34,6 +34,9 @@ function [ ret ] = PCA (dataFile, k)
 	sigma = cov(fea, 1);
 	% Find the k-largest eigenvectors of sigma to construct the projection matrix
  	[V, D] = eigs(sigma, k);
+	disp(V);
+	disp("eigenvalues......");
+	disp(D);
 	% Do the projection
 	ret = fea*V;	% Do the transport just to match the input data format
 	
