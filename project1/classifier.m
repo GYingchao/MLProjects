@@ -55,12 +55,13 @@ function [ ret ] = classifier (trainFile, testFile)
 		
 		% Calculate the class covariance matrix
 		sigma_i = cov(sub_matrix', 1);
+		%sigma_i = sigma_i - 100000*eye(train_d, train_d);
 		
 		% For acceleration
 		detsigma_i = det(sigma_i);
+		disp(detsigma_i);
 		invsigma_i = pinv(sigma_i);
 		clear sigma_i;
-		
 		
 		for l=1:test_n
 			temp = test_fea(:, l) - mu_i;
@@ -68,7 +69,7 @@ function [ ret ] = classifier (trainFile, testFile)
 			clear temp;
 		end
 	end
-	disp(sub_matrix);
+	% disp(max(logG_x));
 	[prob result] = max(exp(logG_x));
 	ret = (result-1)';
 	accuryRatio = sum(ret == test_gnd)/test_n;
