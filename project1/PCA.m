@@ -22,6 +22,7 @@
 function [ ret ] = PCA (dataFile, k)
 	% Load the data source
 	load(dataFile);
+	fea = fea/max(max(fea));
 	% d stands for # of dimensions and n stands for # of samples in the data source matrix(n by d)
 	[n d] = size(fea);
 	% Check the validation of input k
@@ -32,11 +33,12 @@ function [ ret ] = PCA (dataFile, k)
 	
 	% Here comes the SVD
 	sigma = cov(fea, 1);
+	if det(sigma) <= 0.0001
+		sigma = sigma + 0.001*eye(d, d);
+	end
 	% Find the k-largest eigenvectors of sigma to construct the projection matrix
  	[V, D] = eigs(sigma, k);
-	disp(V);
-	disp("eigenvalues......");
-	disp(D);
+	D
 	% Do the projection
 	ret = fea*V;	% Do the transport just to match the input data format
 	

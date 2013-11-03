@@ -22,13 +22,14 @@
 function [ ret ] = classifier (trainFile, testFile)
 	tic;
 	load(trainFile);
-	train_fea = fea';
+	
+	train_fea = fea'/max(max(fea));
 	train_gnd = gnd;
 	clear fea;
 	clear gnd;
 	
 	load(testFile);
-	test_fea = fea';
+	test_fea = fea'/max(max(fea));
 	test_gnd = gnd;
 	clear fea;
 	clear gnd;
@@ -53,13 +54,18 @@ function [ ret ] = classifier (trainFile, testFile)
 		sub_matrix = train_fea(:, sub_index);
 		mu_i = mean(sub_matrix, 2);
 		% Calculate the class covariance matrix
+		
 		sigma_i = cov(sub_matrix', 1);
 		
-		% For acceleration
-		%detsigma_i = det(sigma_i);
-		[V1 detsigma_i] = eigs(sigma_i, 1);
-		disp(detsigma_i);
+		% To settle down the numerical problem
+		detsigma_i = det(sigma_i);
+		if detsigma_i <= 0.00001
+		[v1 detsigma_i] = eigs(sigma_i, 1);
+		end
 		invsigma_i = pinv(sigma_i);
+		if(invsigma_i <= 0.00001)
+			invsigma_i = pinv(sigma_i + 0.01*eye(train_d, train_d));
+		end
 		clear sigma_i;
 		
 		for l=1:test_n
@@ -68,7 +74,7 @@ function [ ret ] = classifier (trainFile, testFile)
 			clear temp;
 		end
 	end
-	%disp(max(logG_x));
+	
 	[prob result] = max(logG_x);
 	ret = (result-1)';
 	accuryRatio = sum(ret == test_gnd)/test_n;

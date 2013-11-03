@@ -62,6 +62,6 @@ function [ ret ] = RLDA (dataFile, k, alpha)
 	
 	% Save the result
 	fea = ret;
-	fileName = sprintf('%s%d', 'RLDA_',k);
+	fileName = sprintf('%s%d_%f', 'RLDA_',k, alpha);
 	save("-binary", fileName, "fea", "gnd");
 endfunction
