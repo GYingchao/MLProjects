@@ -19,7 +19,7 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
-function [ ret ] = PCA (dataFile, k)
+function [ ret ] = PCA (dataFile, k, filesuffix)
 	% Load the data source
 	load(dataFile);
 	fea = fea/max(max(fea));
@@ -44,6 +44,6 @@ function [ ret ] = PCA (dataFile, k)
 	
 	% Save the result
 	fea = ret;
-	fileName = sprintf('%s%d', 'PCA_',k);
+	fileName = sprintf('%s%d%s', 'PCA_', k, filesuffix);
 	save("-binary", fileName, "fea", "gnd");
 endfunction

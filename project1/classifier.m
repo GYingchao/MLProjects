@@ -19,7 +19,7 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-14
 
-function [ ret ] = classifier (trainFile, testFile)
+function [ ret ] = classifier (trainFile, testFile, filesuffix)
 	tic;
 	load(trainFile);
 	
@@ -79,8 +79,8 @@ function [ ret ] = classifier (trainFile, testFile)
 	ret = (result-1)';
 	accuryRatio = sum(ret == test_gnd)/test_n;
 	disp(accuryRatio);
-	
+	filename = ["classified_result" filesuffix];
 	% Save the result
-	save("-binary", "classified_result", "ret");	
+	save("-binary", filename, "ret");	
 	toc()
 endfunction

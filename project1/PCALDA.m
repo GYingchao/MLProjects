@@ -19,7 +19,7 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
-function [ ret ] = PCALDA (dataFile, k1, k2)
+function [ ret ] = PCALDA (dataFile, k1, k2, filesuffix)
 	
 	load(dataFile);
 	
@@ -75,7 +75,7 @@ function [ ret ] = PCALDA (dataFile, k1, k2)
 	% Save the result
 	fea = ret;
 	
-	fileName = sprintf('%s%d_%d', 'PCALDA_',k1, k2);
+	fileName = sprintf('%s%d_%d%s', 'PCALDA_',k1, k2, filesuffix);
 	save("-binary", fileName, "fea", "gnd");	
 
 endfunction
