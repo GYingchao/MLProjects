@@ -2,6 +2,5 @@
 # Language = matlab
 
 *.asv
-*tr
-*te
-
+*tr.mat
+*te.mat

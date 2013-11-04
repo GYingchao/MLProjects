@@ -19,9 +19,15 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
+
+%%%%%%%%%%%%%%%%% The source file is edited to suit matlab%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%% by ycuiac 2013-11-04 %%%%%%%%%%%%%%%%%%%%%%%%%%
+
 function [ ret ] = PCA (dataFile, k, filesuffix)
 	% Load the data source
-	load(dataFile);
+	file = load(dataFile);
+    fea = getfield(file, 'fea');
+    gnd = getfield(file, 'gnd');
 	fea = fea/max(max(fea));
 	% d stands for # of dimensions and n stands for # of samples in the data source matrix(n by d)
 	[n d] = size(fea);
@@ -34,7 +40,7 @@ function [ ret ] = PCA (dataFile, k, filesuffix)
 	% Here comes the SVD
 	sigma = cov(fea, 1);
 	if det(sigma) <= 0.0001
-		sigma = sigma + 0.001*eye(d, d);
+		%sigma = sigma + 0.001*eye(d, d);
 	end
 	% Find the k-largest eigenvectors of sigma to construct the projection matrix
  	[V, D] = eigs(sigma, k);
@@ -45,5 +51,5 @@ function [ ret ] = PCA (dataFile, k, filesuffix)
 	% Save the result
 	fea = ret;
 	fileName = sprintf('%s%d%s', 'PCA_', k, filesuffix);
-	save("-binary", fileName, "fea", "gnd");
-endfunction
+	save(fileName, 'fea', 'gnd');
+end

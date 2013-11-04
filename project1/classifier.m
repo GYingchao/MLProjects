@@ -38,8 +38,8 @@ function [ ret ] = classifier (trainFile, testFile, filesuffix)
 	train_K = max(train_gnd)+1;
 	[test_d test_n] = size(test_fea);
 	
-	if test_d != train_d
-		disp("Error! The dim of training set and testing set cannot match..");
+	if test_d ~= train_d
+		disp('Error! The dim of training set and testing set cannot match.');
 		exit(-1);
 	end
 	
@@ -58,13 +58,13 @@ function [ ret ] = classifier (trainFile, testFile, filesuffix)
 		sigma_i = cov(sub_matrix', 1);
 		
 		% To settle down the numerical problem
-		detsigma_i = det(sigma_i);
+		detsigma_i = abs(det(sigma_i));
 		if detsigma_i <= 0.00001
-		[v1 detsigma_i] = eigs(sigma_i, 1);
+		%[v1 detsigma_i] = eigs(sigma_i, 1);
 		end
 		invsigma_i = pinv(sigma_i);
 		if(invsigma_i <= 0.00001)
-			invsigma_i = pinv(sigma_i + 0.01*eye(train_d, train_d));
+			%invsigma_i = pinv(sigma_i + 0.01*eye(train_d, train_d));
 		end
 		clear sigma_i;
 		
@@ -79,8 +79,8 @@ function [ ret ] = classifier (trainFile, testFile, filesuffix)
 	ret = (result-1)';
 	accuryRatio = sum(ret == test_gnd)/test_n;
 	disp(accuryRatio);
-	filename = ["classified_result" filesuffix];
+	filename = ['classified_result' filesuffix];
 	% Save the result
-	save("-binary", filename, "ret");	
+	save('-binary', filename, 'ret');	
 	toc()
 endfunction
