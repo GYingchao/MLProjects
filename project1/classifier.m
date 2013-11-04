@@ -81,6 +81,6 @@ function [ ret ] = classifier (trainFile, testFile, filesuffix)
 	disp(accuryRatio);
 	filename = ['classified_result' filesuffix];
 	% Save the result
-	save('-binary', filename, 'ret');	
+	save(filename, 'ret');	
 	toc()
-endfunction
+end
