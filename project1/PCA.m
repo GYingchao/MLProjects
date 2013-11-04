@@ -38,7 +38,7 @@ function [ ret ] = PCA (dataFile, k, filesuffix)
 	end
 	% Find the k-largest eigenvectors of sigma to construct the projection matrix
  	[V, D] = eigs(sigma, k);
-	D
+	%D
 	% Do the projection
 	ret = fea*V;	% Do the transport just to match the input data format
 	
