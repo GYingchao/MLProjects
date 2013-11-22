@@ -19,7 +19,7 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
-function [ ret ] = LDA (dataFile, k)
+function [ ret ] = LDA (dataFile, k, filesuffix)
 	% Load the data source
 	load(dataFile);
 	% d stands for # of dimensions and n stands for # of samples in the data source matrix(n by d)
@@ -55,6 +55,6 @@ function [ ret ] = LDA (dataFile, k)
 	
 	% Save the result
 	fea = ret;
-	fileName = sprintf('%s%d', 'LDA_',k);
+	fileName = sprintf('%s%d%s', 'LDA_', k, filesuffix);
 	save("-binary", fileName, "fea", "gnd");	
 endfunction

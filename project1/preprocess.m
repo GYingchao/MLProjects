@@ -21,13 +21,30 @@
 
 function [ ret ] = preprocess (file)
 	load(file);
-	[m n] = size(fea);
-	%temp = zeros(1);
-	% for i=1:m
-		% gnd(i, 1) = uint8(gnd(i, 1));
-		% for j=1:n
-			% fea(i, j) = uint8(fea(i, j));
-		% end
-	% end
+	[n d] = size(fea);
+	train = zeros(n/6, d);
+	traingnd = zeros(n/6, 1);
+	test = zeros(5*n/6, d);
+	testgnd = zeros(5*n/6, 1);
+	x = 0;
+	y = 0;
+	for i=1:n
+		if (mod(i,6) == 1)
+			x++;
+			train(x,:) = fea(i,:);
+			traingnd(x,1) = gnd(i, 1);
+		else
+			y++;
+			test(y, :) = fea(i, :);
+			testgnd(y,1) = gnd(i,1);
+		end
+	end
+	fea = train;
+	gnd = traingnd;
+	save("-binary", "Train2.mat", "fea", "gnd");
 	
+	fea = test;
+	gnd = testgnd;
+	save("-binary", "Test2.mat", "fea", "gnd");
+	ret = x;
 endfunction

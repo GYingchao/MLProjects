@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Compiled Object files
 *.slo
 *.lo
@@ -22,3 +23,11 @@
 # intermediate data file
 *.*tr.mat
 *.*te.mat
+=======
+# Platform = windows
+# Language = matlab
+
+*.asv
+*tr.mat
+*te.mat
+>>>>>>> project1

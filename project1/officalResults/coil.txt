@@ -1,0 +1,132 @@
+>>> No dimensionality reduction <<<
+No PCA or LDA      accTr =   5.0%    accTe =   5.0%
+
+>>> PCA <<<
+nDims(PCA):   1    accTr =  30.0%    accTe =  30.3%
+nDims(PCA):   2    accTr =  71.2%    accTe =  69.2%
+nDims(PCA):   3    accTr =  88.8%    accTe =  87.7%
+nDims(PCA):   4    accTr =  95.0%    accTe =  93.1%
+nDims(PCA):   5    accTr =  97.1%    accTe =  94.2%
+nDims(PCA):   6    accTr =  99.2%    accTe =  94.6%
+nDims(PCA):   7    accTr = 100.0%    accTe =  95.6%
+nDims(PCA):   8    accTr = 100.0%    accTe =  96.0%
+nDims(PCA):   9    accTr = 100.0%    accTe =  96.5%
+nDims(PCA):  10    accTr = 100.0%    accTe =  94.6%
+nDims(PCA):  11    accTr = 100.0%    accTe =  88.3%
+
+>>> RLDA <<<
+nDims(LDA):   1 (alpha=1.0e-05)    accTr = 100.0%    accTe =  37.0%
+nDims(LDA):   2 (alpha=1.0e-05)    accTr = 100.0%    accTe =  47.2%
+nDims(LDA):   3 (alpha=1.0e-05)    accTr = 100.0%    accTe =  57.8%
+nDims(LDA):   4 (alpha=1.0e-05)    accTr = 100.0%    accTe =  60.2%
+nDims(LDA):   5 (alpha=1.0e-05)    accTr = 100.0%    accTe =  64.0%
+nDims(LDA):   6 (alpha=1.0e-05)    accTr = 100.0%    accTe =  68.1%
+nDims(LDA):   7 (alpha=1.0e-05)    accTr = 100.0%    accTe =  64.8%
+nDims(LDA):   8 (alpha=1.0e-05)    accTr = 100.0%    accTe =  66.8%
+nDims(LDA):   9 (alpha=1.0e-05)    accTr = 100.0%    accTe =  61.5%
+nDims(LDA):  10 (alpha=1.0e-05)    accTr = 100.0%    accTe =  54.4%
+nDims(LDA):  11 (alpha=1.0e-05)    accTr = 100.0%    accTe =  40.4%
+nDims(LDA):   1 (alpha=1.0e-04)    accTr = 100.0%    accTe =  37.1%
+nDims(LDA):   2 (alpha=1.0e-04)    accTr = 100.0%    accTe =  47.2%
+nDims(LDA):   3 (alpha=1.0e-04)    accTr = 100.0%    accTe =  57.8%
+nDims(LDA):   4 (alpha=1.0e-04)    accTr = 100.0%    accTe =  60.2%
+nDims(LDA):   5 (alpha=1.0e-04)    accTr = 100.0%    accTe =  64.0%
+nDims(LDA):   6 (alpha=1.0e-04)    accTr = 100.0%    accTe =  68.2%
+nDims(LDA):   7 (alpha=1.0e-04)    accTr = 100.0%    accTe =  64.8%
+nDims(LDA):   8 (alpha=1.0e-04)    accTr = 100.0%    accTe =  58.5%
+nDims(LDA):   9 (alpha=1.0e-04)    accTr = 100.0%    accTe =  61.5%
+nDims(LDA):  10 (alpha=1.0e-04)    accTr = 100.0%    accTe =  55.0%
+nDims(LDA):  11 (alpha=1.0e-04)    accTr = 100.0%    accTe =  44.8%
+nDims(LDA):   1 (alpha=1.0e-03)    accTr =  98.3%    accTe =  36.5%
+nDims(LDA):   2 (alpha=1.0e-03)    accTr = 100.0%    accTe =  47.2%
+nDims(LDA):   3 (alpha=1.0e-03)    accTr = 100.0%    accTe =  58.2%
+nDims(LDA):   4 (alpha=1.0e-03)    accTr = 100.0%    accTe =  61.0%
+nDims(LDA):   5 (alpha=1.0e-03)    accTr = 100.0%    accTe =  64.3%
+nDims(LDA):   6 (alpha=1.0e-03)    accTr = 100.0%    accTe =  68.2%
+nDims(LDA):   7 (alpha=1.0e-03)    accTr = 100.0%    accTe =  65.0%
+nDims(LDA):   8 (alpha=1.0e-03)    accTr = 100.0%    accTe =  58.8%
+nDims(LDA):   9 (alpha=1.0e-03)    accTr = 100.0%    accTe =  61.6%
+nDims(LDA):  10 (alpha=1.0e-03)    accTr = 100.0%    accTe =  54.4%
+nDims(LDA):  11 (alpha=1.0e-03)    accTr = 100.0%    accTe =  44.5%
+nDims(LDA):   1 (alpha=1.0e-02)    accTr = 100.0%    accTe =  37.0%
+nDims(LDA):   2 (alpha=1.0e-02)    accTr = 100.0%    accTe =  45.7%
+nDims(LDA):   3 (alpha=1.0e-02)    accTr = 100.0%    accTe =  60.8%
+nDims(LDA):   4 (alpha=1.0e-02)    accTr = 100.0%    accTe =  63.4%
+nDims(LDA):   5 (alpha=1.0e-02)    accTr = 100.0%    accTe =  66.0%
+nDims(LDA):   6 (alpha=1.0e-02)    accTr = 100.0%    accTe =  69.0%
+nDims(LDA):   7 (alpha=1.0e-02)    accTr = 100.0%    accTe =  65.8%
+nDims(LDA):   8 (alpha=1.0e-02)    accTr = 100.0%    accTe =  59.8%
+nDims(LDA):   9 (alpha=1.0e-02)    accTr = 100.0%    accTe =  61.8%
+nDims(LDA):  10 (alpha=1.0e-02)    accTr = 100.0%    accTe =  54.7%
+nDims(LDA):  11 (alpha=1.0e-02)    accTr = 100.0%    accTe =  39.8%
+nDims(LDA):   1 (alpha=1.0e-01)    accTr =  92.5%    accTe =  40.2%
+nDims(LDA):   2 (alpha=1.0e-01)    accTr = 100.0%    accTe =  53.6%
+nDims(LDA):   3 (alpha=1.0e-01)    accTr = 100.0%    accTe =  71.2%
+nDims(LDA):   4 (alpha=1.0e-01)    accTr = 100.0%    accTe =  75.7%
+nDims(LDA):   5 (alpha=1.0e-01)    accTr = 100.0%    accTe =  76.0%
+nDims(LDA):   6 (alpha=1.0e-01)    accTr = 100.0%    accTe =  73.8%
+nDims(LDA):   7 (alpha=1.0e-01)    accTr = 100.0%    accTe =  74.8%
+nDims(LDA):   8 (alpha=1.0e-01)    accTr = 100.0%    accTe =  69.7%
+nDims(LDA):   9 (alpha=1.0e-01)    accTr = 100.0%    accTe =  66.8%
+nDims(LDA):  10 (alpha=1.0e-01)    accTr = 100.0%    accTe =  55.2%
+nDims(LDA):  11 (alpha=1.0e-01)    accTr = 100.0%    accTe =  50.3%
+nDims(LDA):   1 (alpha=1.0e+00)    accTr =  87.9%    accTe =  48.8%
+nDims(LDA):   2 (alpha=1.0e+00)    accTr =  99.2%    accTe =  69.1%
+nDims(LDA):   3 (alpha=1.0e+00)    accTr = 100.0%    accTe =  80.3%
+nDims(LDA):   4 (alpha=1.0e+00)    accTr = 100.0%    accTe =  84.8%
+nDims(LDA):   5 (alpha=1.0e+00)    accTr = 100.0%    accTe =  86.4%
+nDims(LDA):   6 (alpha=1.0e+00)    accTr = 100.0%    accTe =  86.0%
+nDims(LDA):   7 (alpha=1.0e+00)    accTr = 100.0%    accTe =  85.5%
+nDims(LDA):   8 (alpha=1.0e+00)    accTr = 100.0%    accTe =  83.8%
+nDims(LDA):   9 (alpha=1.0e+00)    accTr = 100.0%    accTe =  82.2%
+nDims(LDA):  10 (alpha=1.0e+00)    accTr = 100.0%    accTe =  77.8%
+nDims(LDA):  11 (alpha=1.0e+00)    accTr = 100.0%    accTe =  65.2%
+
+>>> PCA+LDA <<<
+nDims(PCA):  40    nDims(LDA):   1    accTr =  44.2%    accTe =  43.3%
+nDims(PCA):  40    nDims(LDA):   2    accTr =  79.6%    accTe =  72.2%
+nDims(PCA):  40    nDims(LDA):   3    accTr =  90.8%    accTe =  86.1%
+nDims(PCA):  40    nDims(LDA):   4    accTr =  95.8%    accTe =  90.0%
+nDims(PCA):  40    nDims(LDA):   5    accTr =  98.8%    accTe =  93.2%
+nDims(PCA):  40    nDims(LDA):   6    accTr = 100.0%    accTe =  92.8%
+nDims(PCA):  40    nDims(LDA):   7    accTr = 100.0%    accTe =  92.9%
+nDims(PCA):  40    nDims(LDA):   8    accTr = 100.0%    accTe =  92.2%
+nDims(PCA):  40    nDims(LDA):   9    accTr = 100.0%    accTe =  89.9%
+nDims(PCA):  40    nDims(LDA):  10    accTr = 100.0%    accTe =  85.2%
+nDims(PCA):  40    nDims(LDA):  11    accTr = 100.0%    accTe =  68.1%
+nDims(PCA):  60    nDims(LDA):   1    accTr =  46.2%    accTe =  39.4%
+nDims(PCA):  60    nDims(LDA):   2    accTr =  65.8%    accTe =  56.9%
+nDims(PCA):  60    nDims(LDA):   3    accTr =  92.5%    accTe =  81.1%
+nDims(PCA):  60    nDims(LDA):   4    accTr =  99.6%    accTe =  89.7%
+nDims(PCA):  60    nDims(LDA):   5    accTr = 100.0%    accTe =  91.2%
+nDims(PCA):  60    nDims(LDA):   6    accTr = 100.0%    accTe =  91.0%
+nDims(PCA):  60    nDims(LDA):   7    accTr = 100.0%    accTe =  90.6%
+nDims(PCA):  60    nDims(LDA):   8    accTr = 100.0%    accTe =  89.2%
+nDims(PCA):  60    nDims(LDA):   9    accTr = 100.0%    accTe =  88.9%
+nDims(PCA):  60    nDims(LDA):  10    accTr = 100.0%    accTe =  83.2%
+nDims(PCA):  60    nDims(LDA):  11    accTr = 100.0%    accTe =  53.5%
+nDims(PCA):  80    nDims(LDA):   1    accTr =  45.4%    accTe =  42.5%
+nDims(PCA):  80    nDims(LDA):   2    accTr =  82.1%    accTe =  73.8%
+nDims(PCA):  80    nDims(LDA):   3    accTr =  90.4%    accTe =  80.2%
+nDims(PCA):  80    nDims(LDA):   4    accTr =  99.6%    accTe =  87.5%
+nDims(PCA):  80    nDims(LDA):   5    accTr = 100.0%    accTe =  90.6%
+nDims(PCA):  80    nDims(LDA):   6    accTr = 100.0%    accTe =  91.7%
+nDims(PCA):  80    nDims(LDA):   7    accTr = 100.0%    accTe =  91.1%
+nDims(PCA):  80    nDims(LDA):   8    accTr = 100.0%    accTe =  89.9%
+nDims(PCA):  80    nDims(LDA):   9    accTr = 100.0%    accTe =  88.3%
+nDims(PCA):  80    nDims(LDA):  10    accTr = 100.0%    accTe =  86.8%
+nDims(PCA):  80    nDims(LDA):  11    accTr = 100.0%    accTe =  67.8%
+nDims(PCA): 100    nDims(LDA):   1    accTr =  44.6%    accTe =  34.2%
+nDims(PCA): 100    nDims(LDA):   2    accTr =  76.7%    accTe =  55.2%
+nDims(PCA): 100    nDims(LDA):   3    accTr =  97.9%    accTe =  78.7%
+nDims(PCA): 100    nDims(LDA):   4    accTr = 100.0%    accTe =  84.5%
+nDims(PCA): 100    nDims(LDA):   5    accTr = 100.0%    accTe =  87.7%
+nDims(PCA): 100    nDims(LDA):   6    accTr = 100.0%    accTe =  88.2%
+nDims(PCA): 100    nDims(LDA):   7    accTr = 100.0%    accTe =  87.3%
+nDims(PCA): 100    nDims(LDA):   8    accTr = 100.0%    accTe =  87.5%
+nDims(PCA): 100    nDims(LDA):   9    accTr = 100.0%    accTe =  87.2%
+nDims(PCA): 100    nDims(LDA):  10    accTr = 100.0%    accTe =  78.4%
+nDims(PCA): 100    nDims(LDA):  11    accTr = 100.0%    accTe =  61.4%
+
+ 
+?

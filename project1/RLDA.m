@@ -19,7 +19,7 @@
 % ## Author: ycuiac <ycuiac@CSZ900>
 % ## Created: 2013-10-13
 
-function [ ret ] = RLDA (dataFile, k, alpha)
+function [ ret ] = RLDA (dataFile, k, alpha, filesuffix)
 	% Load the data source
 	load(dataFile);
 	% d stands for # of dimensions and n stands for # of samples in the data source matrix(n by d)
@@ -62,6 +62,6 @@ function [ ret ] = RLDA (dataFile, k, alpha)
 	
 	% Save the result
 	fea = ret;
-	fileName = sprintf('%s%d', 'RLDA_',k);
+	fileName = sprintf('%s%d_%d%s', 'RLDA_',k, log10(alpha), filesuffix);
 	save("-binary", fileName, "fea", "gnd");
 endfunction
