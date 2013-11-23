@@ -45,8 +45,7 @@ function [ result ] = logisticRegression( trData, teData, eta, maxIter )
     
     % Compute the classification accuracy
     ratio = sum(label == Y)/n2;
-    ratio = n2;
-    sprintf('%s%f\n', 'Accuracy achieved: ', ratio)
+    sprintf('%s%f%s%f', 'Accuracy achieved: ', ratio, ' where eta is ', eta)
     result = label;
 end
 
