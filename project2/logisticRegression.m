@@ -14,8 +14,8 @@ function [ result ] = logisticRegression( trData, teData, eta, maxIter )
         dW = zeros(d+1, 1);
         for l=1:n
             o = X1(l, :)*W;
-            a = 1/(1 + exp(-o));
-            a = Y(l, 1) - a;
+            a = 1.0/(1 + exp(-o));
+            a = 1 - Y(l, 1) - a;
             for j=0:d
                dW(j+1, 1) = dW(j+1, 1) + a*X1(l, j+1);
             end
