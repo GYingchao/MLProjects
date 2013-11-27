@@ -35,12 +35,7 @@ function [ result ] = logisticRegression( trData, teData, eta, maxIter )
     X2 = [ones(n2, 1), X];
     label = -1*ones(n2, 1);
     for l=1:n2
-        label(l, 1) = X2(l, :)*W;
-        if(label(l, 1) > 0) 
-            label(l, 1) = 0;
-        else
-            label(l, 1) = 1;
-        end
+        label(l, 1) = X2(l, :)*W < 0;
     end
     
     % Compute the classification accuracy
