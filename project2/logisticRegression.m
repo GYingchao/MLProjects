@@ -23,7 +23,7 @@ function [ result ] = logisticRegression( trData, teData, eta, maxIter )
         W = W + eta*dW;
         iterations = iterations + 1;
     end
-    
+    W
     % After convergence, we compute the discriminat function value directly
     % w.r.t testing data set
     clear X;
