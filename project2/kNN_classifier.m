@@ -26,7 +26,7 @@ function [ output ] = kNN_classifier( k, trData, teData )
         % Define distance array
         temp = bsxfun(@minus, X1, X2(te, :));
         %dists = sqrt(sum(temp.^2, 2))
-        dists = sum(temp.^2, 2);
+        dists = sqrt(sum(temp.^2, 2));
         clear temp;
         
         % Identify knn of input te
@@ -43,10 +43,12 @@ function [ output ] = kNN_classifier( k, trData, teData )
                     end
                     neighbors(i) = curr;
                     indice(i) = tr; 
+                    break;
                 end
             end
         end
-        indice'
+        %neighbors'
+        %indice'
         % Hopefully we get the knn in vector neighbors and their indice
         % Then we do the classification
         statLabel = zeros(1, 2);
