@@ -21,18 +21,20 @@ function [ output ] = kNN_classifier( k, trData, teData )
 
     for te = 1:n2
         % Define k-bin vector to store the k nearest neighborhoods
-        neighbors = zeros(k, 1); % column vector is convenient to shift
+        neighbors = 100000*ones(k, 1); % column vector is convenient to shift
         indice = zeros(k, 1);
         % Define distance array
-        dists = bsxfun(@minus, X1, X2(te, :));
-        dists = sqrt(sum(dists.^2, 2));
+        temp = bsxfun(@minus, X1, X2(te, :));
+        %dists = sqrt(sum(temp.^2, 2))
+        dists = sum(temp.^2, 2);
+        clear temp;
         
         % Identify knn of input te
         for tr = 1:n1
-            curr = X1(tr);
+            curr = dists(tr);
             % Insert operation
             for i=1:k
-                if neighbors(i) < curr
+                if neighbors(i) > curr
                     j = k-1;
                     while j>=i
                         neighbors(j+1) = neighbors(j);
@@ -44,12 +46,12 @@ function [ output ] = kNN_classifier( k, trData, teData )
                 end
             end
         end
-        
+        indice'
         % Hopefully we get the knn in vector neighbors and their indice
         % Then we do the classification
         statLabel = zeros(1, 2);
         for i=1:k
-            if Y1(i) == 0
+            if Y1(indice(i)) == 0
                 statLabel(1) = statLabel(1) + 1;
             else
                 statLabel(2) = statLabel(2) + 1;
