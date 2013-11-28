@@ -70,7 +70,7 @@ function [ output ] = kNN_classifier( k, X1, Y1, X2, Y2 )
     
     % Evaluate the classification ratio
     ratio = sum(result == Y2)/n2;
-    sprintf('%s%f%s%d', 'Accuracy achieved: ', ratio, ' when k = ', k)
+    %sprintf('%s%f%s%d', 'Accuracy achieved: ', ratio, ' when k = ', k)
     output = ratio;
 end
 
