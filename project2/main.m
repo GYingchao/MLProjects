@@ -25,7 +25,7 @@
 % end
 
 % Conduct cross validation to tune k for the k-NN classifier
-TrainFile = 'isolet_train.mat';
+TrainFile = 'liver_train.mat';
 load(TrainFile);
 [n1 d1] = size(X);
 acc = zeros(10, 10);
