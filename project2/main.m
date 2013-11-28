@@ -25,12 +25,12 @@
 % end
 
 % Conduct cross validation to tune k for the k-NN classifier
-TrainFile = 'mnist_train.mat';
+TrainFile = 'mushroom_train.mat';
 load(TrainFile);
 [n1 d1] = size(X);
 acc = zeros(10, 10);
 for i=1:10
-    testI = ceil(n1*rand(1, 0.2*n1));
+    testI = ceil(n1*rand(1, floor(0.2*n1)));
     testX = X(testI, :);
     testY = Y(testI, :);
     trainX = X;
