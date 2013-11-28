@@ -1,16 +1,16 @@
-function [ output ] = kNN_classifier( k, trData, teData )
+function [ output ] = kNN_classifier( k, X1, Y1, X2, Y2 )
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
-    load(trData);
-    [n1 d1] = size(X);
-    X1 = X; Y1 = Y;
-    clear X; clear Y;
+    %load(trData);
+    [n1 d1] = size(X1);
+    %X1 = X; Y1 = Y;
+    %clear X; clear Y;
 
-    load(teData);
-    [n2 d2] = size(X);
-    X2 = X; Y2 = Y;
-    clear X; clear Y;
+    %load(teData);
+    [n2 d2] = size(X2);
+    %X2 = X; Y2 = Y;
+    %clear X; clear Y;
 
     if d1 ~= d2
         disp('Format Error! Degrees do not match!');
@@ -71,6 +71,6 @@ function [ output ] = kNN_classifier( k, trData, teData )
     % Evaluate the classification ratio
     ratio = sum(result == Y2)/n2;
     sprintf('%s%f%s%d', 'Accuracy achieved: ', ratio, ' when k = ', k)
-    output = result;
+    output = ratio;
 end
 
