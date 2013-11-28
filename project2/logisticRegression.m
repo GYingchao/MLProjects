@@ -23,7 +23,6 @@ function [ result ] = logisticRegression( trData, teData, eta, maxIter )
         W = W + eta*dW;
         iterations = iterations + 1;
     end
-    W
     % After convergence, we compute the discriminat function value directly
     % w.r.t testing data set
     clear X;
@@ -40,7 +39,8 @@ function [ result ] = logisticRegression( trData, teData, eta, maxIter )
     
     % Compute the classification accuracy
     ratio = sum(label == Y)/n2;
-    sprintf('%s%f%s%f', 'Accuracy achieved: ', ratio, ' where eta is ', eta)
-    result = label;
+    %sprintf('%s%f%s%f', 'Accuracy achieved: ', ratio, ' where eta is ', eta)
+    %result = label;
+    result = ratio;
 end
 
