@@ -25,7 +25,7 @@
 % end
 
 % Conduct cross validation to tune k for the k-NN classifier
-TrainFile = 'ionosphere_train.mat';
+TrainFile = 'isolet_train.mat';
 load(TrainFile);
 [n1 d1] = size(X);
 acc = zeros(10, 10);
@@ -42,5 +42,5 @@ for i=1:10
         acc(i, k) = kNN_classifier(k, trainX, trainY, testX, testY);
     end
 end
-max(sum(acc)/10)
+result = sum(acc)/10;
 
