@@ -1,7 +1,7 @@
 function [ output ] = kNN_classifier( k, X1, Y1, X2, Y2 )
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
-
+    startT = cputime;
     %load(trData);
     [n1 d1] = size(X1);
     %X1 = X; Y1 = Y;
@@ -70,7 +70,7 @@ function [ output ] = kNN_classifier( k, X1, Y1, X2, Y2 )
     
     % Evaluate the classification ratio
     ratio = sum(result == Y2)/n2;
-    %sprintf('%s%f%s%d', 'Accuracy achieved: ', ratio, ' when k = ', k)
-    output = ratio;
+    sprintf('%s%f%s%f', 'Accuracy achieved: ', ratio, ' with time ', cputime - startT)
+    output = result;
 end
 
