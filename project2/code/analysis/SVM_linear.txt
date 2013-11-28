@@ -1,0 +1,15 @@
+ionosphere_tr -- ionosphere_tr	91.60%
+ionosphere_tr -- ionosphere_te	87.13%
+
+isolet_tr -- isolet_tr		100.00%
+isolet_tr -- isolet_te		98.33%
+
+liver_tr -- liver_tr		58.50%
+liver_tr -- liver_te		57.24%
+
+mnist_tr -- mnist_tr		98.75%
+mnist_tr -- mnist_te		96.00%
+
+mushroom_tr -- mushroom_tr	99.98%
+mushroom_tr -- mushroom_te	99.83%
+
